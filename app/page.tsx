@@ -7,43 +7,44 @@ const timeline = [
   {
     id: "early",
     label: "Early Life in Utah (1859–1880)",
-    text: `Electa Louisa Lowder was born January 20, 1859, in West Jordan, Utah, to Richmond and Emily Lowder. 
-She grew up in a large, close-knit family where faith, work, and cooperation were daily lessons. 
+    text: `Electa Louisa Lowder was born January 20, 1859, in West Jordan, Utah, to Richmond and Emily Lowder.
+She grew up in a large, close-knit family where faith, work, and cooperation were daily lessons.
 In 1877 she chose to be baptized, following the example of her parents and committing herself to the gospel.`,
   },
   {
     id: "marriage",
-    label: "Marriage & Moving North (1880s)",
-    text: `In 1880, Electa became the second wife of Thomas Walton. 
-New federal laws soon made plural marriage illegal, putting heavy pressure on families like theirs. 
+    label: "Marriage and Moving North (1880s)",
+    text: `In 1880, Electa became the second wife of Thomas Walton.
+New federal laws soon made plural marriage illegal, putting heavy pressure on families like theirs.
 With courage and conviction, they left Utah and traveled to the rugged Star Valley of western Wyoming, helping build one of the first homes in Smoot.`,
   },
   {
     id: "service",
-    label: "Relief Society & Service (Smoot Years)",
-    text: `Life in Star Valley was harsh—long winters, hard work, and limited supplies. 
-Electa met it all with quiet strength. She served as a midwife, tended the sick, and opened her home to anyone in need. 
+    label: "Relief Society and Service (Smoot Years)",
+    text: `Life in Star Valley was harsh, with long winters, hard work, and limited supplies.
+Electa met it all with quiet strength. She served as a midwife, tended the sick, and opened her home to anyone in need.
 For about twenty years she led the Relief Society sisters in Smoot, organizing quilting bees, providing clothing, and strengthening testimonies.`,
   },
   {
     id: "afton",
-    label: "Afton & Temple Work (Later Years)",
-    text: `After decades in Smoot, Electa and Thomas moved to Afton, Wyoming. 
-There she continued to serve in Relief Society and devoted much of her time to genealogy and temple work, traveling often to the Logan Temple. 
+    label: "Afton and Temple Work (Later Years)",
+    text: `After decades in Smoot, Electa and Thomas moved to Afton, Wyoming.
+There she continued to serve in Relief Society and devoted much of her time to genealogy and temple work, traveling often to the Logan Temple.
 Even as age and illness slowed her body, her faith stayed steady. She passed away August 7, 1939, leaving a legacy of quiet discipleship.`,
   },
 ];
 
 const photos = [
   {
+    src: "/electa-and-sisters.jpg",
+    alt: "Electa with her sisters Esther Ann and Harriet Adelia Lowder",
+    caption:
+      "Electa with her sisters Esther Ann and Harriet Adelia outside a simple wooden home.",
+  },
+  {
     src: "/electa-seated.jpg",
     alt: "Electa seated with a book in her hands",
     caption: "Electa in later life, calm and composed, holding a book.",
-  },
-  {
-    src: "/electa-and-sisters.jpg",
-    alt: "Electa with her sisters Esther Ann and Harriet Adelia Lowder",
-    caption: "Electa with her sisters Esther Ann and Harriet Adelia outside a simple wooden home.",
   },
   {
     src: "/electa-portrait.jpg",
@@ -51,6 +52,7 @@ const photos = [
     caption: "A closer portrait of Electa, the face her family remembers.",
   },
 ];
+
 
 export default function Home() {
   const [activeTimeline, setActiveTimeline] = useState(timeline[0].id);
@@ -72,10 +74,10 @@ export default function Home() {
                 Electa Louisa Lowder Walton
               </h1>
               <p className="text-sm text-[#DDD8C4]/90">
-                1859–1939 · West Jordan, Utah → Star Valley &amp; Afton, Wyoming
+                1859–1939 · West Jordan, Utah → Star Valley and Afton, Wyoming
               </p>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#DDD8C4]">
-                This interactive page shares the life of my ancestor, Electa—her
+                This interactive page shares the life of my ancestor, Electa, her
                 journey from a young girl in Utah to a beloved Relief Society
                 president in the mountains of Wyoming.
               </p>
@@ -144,7 +146,7 @@ export default function Home() {
         <section className="space-y-6 rounded-3xl bg-white/90 p-6 shadow-sm ring-1 ring-slate-200 md:p-8">
           <header className="space-y-2">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
-              Faces &amp; Places
+              Faces and Places
             </h2>
             <p className="max-w-2xl text-sm text-slate-700">
               Use the thumbnails to change the main photo. Imagine these scenes
@@ -152,7 +154,6 @@ export default function Home() {
             </p>
           </header>
 
-          {/* Large image already controlled by hero via activePhoto */}
           <div className="grid gap-6 md:grid-cols-[3fr,2fr] md:items-start">
             <div className="space-y-3">
               <div className="relative h-72 overflow-hidden rounded-3xl bg-[#A3C9A8]/40 shadow-lg ring-1 ring-slate-300">
@@ -206,21 +207,21 @@ export default function Home() {
         {/* REFLECTION / ASSIGNMENT HELP */}
         <section className="space-y-4 rounded-3xl bg-[#84B59F]/40 p-6 shadow-sm ring-1 ring-[#84B59F]/60 md:p-8">
           <h2 className="text-xl font-semibold tracking-tight text-[#243B4A]">
-            Her Legacy &amp; My Takeaways
+            Her Legacy and My Takeaways
           </h2>
           <p className="max-w-3xl text-sm leading-relaxed text-[#243B4A]">
-            Electa&apos;s story isn&apos;t about fame or dramatic events. It&apos;s
-            about showing up—quilting for others, visiting the sick, answering
-            calls to serve, and quietly strengthening her community. Mountain
-            valleys and pioneer roads were the backdrop, but her discipleship was
-            the real journey.
+            Electa&apos;s story is not about fame or dramatic events. It is about
+            showing up, quilting for others, visiting the sick, answering calls to
+            serve, and quietly strengthening her community. Mountain valleys and
+            pioneer roads were the backdrop, but her discipleship was the real
+            journey.
           </p>
           <div className="grid gap-3 text-sm text-[#243B4A] md:grid-cols-3">
             <div className="rounded-2xl bg-white/70 p-4 shadow-sm">
               <h3 className="text-sm font-semibold">Service</h3>
               <p className="mt-1 text-xs">
-                How did Electa&apos;s constant service—especially as Relief Society
-                president—shape the people around her?
+                How did Electa&apos;s constant service, especially as Relief Society
+                president, shape the people around her?
               </p>
             </div>
             <div className="rounded-2xl bg-white/70 p-4 shadow-sm">
@@ -233,7 +234,7 @@ export default function Home() {
             <div className="rounded-2xl bg-white/70 p-4 shadow-sm">
               <h3 className="text-sm font-semibold">Connection</h3>
               <p className="mt-1 text-xs">
-                How does her temple and genealogy work connect you to her today—and
+                How does her temple and genealogy work connect you to her today, and
                 how might you continue that work?
               </p>
             </div>
