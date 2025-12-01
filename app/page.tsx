@@ -36,13 +36,13 @@ Even as age and illness slowed her body, her faith stayed steady. She passed awa
 
 const photos = [
   {
-    src: "/electa-and-sisters.jpg",
+    src: "/electa-seated.jpg",
     alt: "Electa with her sisters Esther Ann and Harriet Adelia Lowder",
     caption:
       "Electa with her sisters Esther Ann and Harriet Adelia outside a simple wooden home.",
   },
   {
-    src: "/electa-seated.jpg",
+    src: "/electa-and-sisters.jpg",
     alt: "Electa seated with a book in her hands",
     caption: "Electa in later life, calm and composed, holding a book.",
   },
