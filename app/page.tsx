@@ -6,7 +6,7 @@ import Image from "next/image";
 const timeline = [
   {
     id: "early",
-    label: "Early Life in Utah (1859–1880)",
+    label: "Early Life in Utah (1859-1880)",
     text: `Electa Louisa Lowder was born January 20, 1859, in West Jordan, Utah, to Richmond and Emily Lowder.
 She grew up in a large, close-knit family where faith, work, and cooperation were daily lessons.
 In 1877 she chose to be baptized, following the example of her parents and committing herself to the gospel.`,
@@ -36,15 +36,16 @@ Even as age and illness slowed her body, her faith stayed steady. She passed awa
 
 const photos = [
   {
+    src: "/electa-and-sisters.jpg",
+    alt: "Portrait of Electa Walton in later life",
+    caption:
+      "Electa Walton in later life, seated with a calm and thoughtful expression.",
+  },
+  {
     src: "/electa-seated.jpg",
     alt: "Electa with her sisters Esther Ann and Harriet Adelia Lowder",
     caption:
       "Electa with her sisters Esther Ann and Harriet Adelia outside a simple wooden home.",
-  },
-  {
-    src: "/electa-and-sisters.jpg",
-    alt: "Electa seated with a book in her hands",
-    caption: "Electa in later life, calm and composed, holding a book.",
   },
   {
     src: "/electa-portrait.jpg",
@@ -53,7 +54,6 @@ const photos = [
   },
 ];
 
-
 export default function Home() {
   const [activeTimeline, setActiveTimeline] = useState(timeline[0].id);
   const [activePhoto, setActivePhoto] = useState(photos[0]);
@@ -61,102 +61,141 @@ export default function Home() {
   const activeTimelineItem = timeline.find((t) => t.id === activeTimeline)!;
 
   return (
-    <div className="min-h-screen bg-[#DDD8C4] px-4 text-slate-900">
-      <main className="mx-auto flex max-w-5xl flex-col gap-14 py-10 md:py-16">
+    <div className="min-h-screen bg-gradient-to-b from-[#F5EFFF] via-[#E5D9F2] to-[#CDC1FF] px-4 text-slate-900">
+      <main className="mx-auto flex max-w-6xl flex-col gap-16 py-10 md:py-16">
         {/* HERO */}
-        <section className="rounded-3xl bg-[#50808E] px-6 py-8 text-[#DDD8C4] shadow-lg md:px-8">
-          <div className="grid gap-8 md:grid-cols-[3fr,2fr] md:items-center">
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDD8C4]/90">
+        <section className="relative overflow-hidden rounded-[2.75rem] bg-gradient-to-br from-[#7371FC] via-[#A594F9] to-[#CDC1FF] px-6 py-10 text-[#F5EFFF] shadow-2xl md:px-10">
+          {/* soft blobs */}
+          <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-[#F5EFFF]/20 blur-3xl" />
+          <div className="pointer-events-none absolute -right-28 bottom-[-6rem] h-80 w-80 rounded-full bg-[#E5D9F2]/25 blur-3xl" />
+
+          <div className="relative grid gap-10 md:grid-cols-[3fr,2.5fr] md:items-center">
+            <div className="space-y-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F5EFFF]/80">
                 Family History · Pioneer Heritage
               </p>
-              <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+              <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">
                 Electa Louisa Lowder Walton
               </h1>
-              <p className="text-sm text-[#DDD8C4]/90">
-                1859–1939 · West Jordan, Utah → Star Valley and Afton, Wyoming
+              <p className="text-sm text-[#F5EFFF]/90">
+                1859-1939 · West Jordan, Utah → Star Valley and Afton, Wyoming
               </p>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#DDD8C4]">
-                This interactive page shares the life of my ancestor, Electa, her
-                journey from a young girl in Utah to a beloved Relief Society
-                president in the mountains of Wyoming.
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#F5EFFF]">
+                This website shares the life of my ancestor, Electa, her journey
+                from a young girl in Utah to a beloved Relief Society president
+                in the mountain valleys of Wyoming.
               </p>
-              <p className="mt-3 max-w-xl rounded-2xl bg-[#A3C9A8]/20 px-4 py-3 text-sm italic text-[#DDD8C4]">
-                “Researching Electa’s life has taught me the importance of service
-                and staying steadfast to your testimony of Jesus Christ.”
+              <p className="mt-4 max-w-xl rounded-2xl bg-[#F5EFFF]/15 px-4 py-3 text-sm italic text-[#F5EFFF]">
+                “Researching Electa&apos;s life has taught me the importance of
+                service and staying steadfast to your testimony of Jesus Christ.”
               </p>
             </div>
 
-            {/* Main Photo (interactive selection controls which one) */}
-            <div className="flex justify-center">
-              <div className="relative h-64 w-64 overflow-hidden rounded-[2rem] bg-[#A3C9A8] shadow-xl ring-4 ring-[#84B59F]">
+            {/* hero photo with floating card */}
+            <div className="relative flex justify-center">
+              <div className="relative h-72 w-72 overflow-hidden rounded-[3rem] bg-[#F5EFFF]/20 shadow-[0_30px_60px_rgba(0,0,0,0.35)] ring-2 ring-[#F5EFFF]/40">
                 <Image
-                  src={activePhoto.src}
-                  alt={activePhoto.alt}
+                  src={photos[0].src}
+                  alt={photos[0].alt}
                   fill
                   className="object-contain"
-                  sizes="256px"
+                  sizes="288px"
                   priority
                 />
+              </div>
+
+              {/* floating label */}
+              <div className="absolute -bottom-6 left-1/2 w-64 -translate-x-1/2 rounded-2xl bg-[#F5EFFF]/80 px-4 py-3 text-xs font-medium text-[#4B4B6A] shadow-lg backdrop-blur">
+                Portrait of Electa Walton in later life, the calm center of a very
+                busy life of service.
               </div>
             </div>
           </div>
         </section>
 
-        {/* TIMELINE / STORY */}
-        <section className="space-y-6 rounded-3xl bg-white/90 p-6 shadow-sm ring-1 ring-slate-200 md:p-8">
-          <header className="space-y-2">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+        {/* STORY + TIMELINE */}
+        <section className="grid gap-10 md:grid-cols-[2.1fr,1.7fr] md:items-start">
+          {/* text side */}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#7371FC] shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7371FC]" />
               Her Story Through Time
-            </h2>
-            <p className="max-w-2xl text-sm text-slate-700">
-              Click through the moments below to see how Electa&apos;s life moved
-              from Utah to the mountain valleys of Wyoming.
+            </div>
+            <p className="max-w-xl text-sm leading-relaxed text-slate-800">
+              Move along the timeline to see how Electa&apos;s life unfolded,
+              from a childhood in West Jordan, Utah, to a life of quiet leadership
+              and temple work in Wyoming.
             </p>
-          </header>
 
-          {/* Timeline buttons */}
-          <div className="flex flex-wrap gap-3">
-            {timeline.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveTimeline(item.id)}
-                className={`rounded-full border px-4 py-2 text-xs font-semibold transition ${
-                  activeTimeline === item.id
-                    ? "border-transparent bg-[#69A297] text-white shadow-sm"
-                    : "border-slate-300 bg-slate-50 text-slate-700 hover:bg-slate-100"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+            {/* active timeline text in a soft panel */}
+            <div className="rounded-[2rem] bg-white/70 p-6 text-sm leading-relaxed text-slate-900 shadow-md shadow-[#CDC1FF]/60 backdrop-blur">
+              {activeTimelineItem.text.split("\n").map((p, i) => (
+                <p key={i} className={i > 0 ? "mt-3" : ""}>
+                  {p}
+                </p>
+              ))}
+            </div>
           </div>
 
-          {/* Active timeline content */}
-          <div className="rounded-2xl bg-[#A3C9A8]/20 p-5 text-sm leading-relaxed text-slate-800">
-            {activeTimelineItem.text.split("\n").map((p, i) => (
-              <p key={i} className={i > 0 ? "mt-3" : ""}>
-                {p}
-              </p>
-            ))}
+          {/* timeline controls in a pill row */}
+          <div className="space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#7371FC]">
+              Timeline
+            </p>
+            <div className="flex flex-col gap-3">
+              {timeline.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveTimeline(item.id)}
+                  className={`group flex items-center gap-3 rounded-[999px] px-4 py-3 text-left text-xs sm:text-sm transition-transform ${
+                    activeTimeline === item.id
+                      ? "bg-gradient-to-r from-[#A594F9] to-[#7371FC] text-white shadow-lg shadow-[#A594F9]/60"
+                      : "bg-white/70 text-slate-800 shadow-sm hover:-translate-y-0.5 hover:shadow-md"
+                  }`}
+                >
+                  <span
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold ${
+                      activeTimeline === item.id
+                        ? "bg-white/20 text-white"
+                        : "bg-[#E5D9F2] text-[#7371FC]"
+                    }`}
+                  >
+                    {item.id === "early"
+                      ? "1"
+                      : item.id === "marriage"
+                      ? "2"
+                      : item.id === "service"
+                      ? "3"
+                      : "4"}
+                  </span>
+                  <span>{item.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* IMAGE GALLERY */}
-        <section className="space-y-6 rounded-3xl bg-white/90 p-6 shadow-sm ring-1 ring-slate-200 md:p-8">
-          <header className="space-y-2">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
-              Faces and Places
-            </h2>
-            <p className="max-w-2xl text-sm text-slate-700">
-              Use the thumbnails to change the main photo. Imagine these scenes
-              against mountain backdrops, dirt roads, and simple pioneer homes.
+        {/* GALLERY */}
+        <section className="space-y-6">
+          <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#7371FC]">
+                Photo Gallery
+              </p>
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+                Faces and Places
+              </h2>
+            </div>
+            <p className="max-w-xl text-xs md:text-sm text-slate-700">
+              Tap a thumbnail to bring that scene to the front. Try imagining the
+              colors, sounds, and stories behind each image.
             </p>
-          </header>
+          </div>
 
           <div className="grid gap-6 md:grid-cols-[3fr,2fr] md:items-start">
-            <div className="space-y-3">
-              <div className="relative h-72 overflow-hidden rounded-3xl bg-[#A3C9A8]/40 shadow-lg ring-1 ring-slate-300">
+            {/* big image */}
+            <div className="relative overflow-hidden rounded-[2.5rem] bg-white/70 p-3 shadow-lg shadow-[#CDC1FF]/70 backdrop-blur">
+              <div className="relative h-80 overflow-hidden rounded-[2rem] bg-[#E5D9F2]">
                 <Image
                   src={activePhoto.src}
                   alt={activePhoto.alt}
@@ -165,78 +204,81 @@ export default function Home() {
                   sizes="(min-width: 768px) 32rem, 100vw"
                 />
               </div>
-              <p className="text-xs text-slate-700">{activePhoto.caption}</p>
+              <p className="mt-3 text-xs text-slate-700">{activePhoto.caption}</p>
             </div>
 
-            {/* Thumbnails */}
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#50808E]">
-                Photo Gallery
-              </p>
-              <div className="grid gap-3 sm:grid-cols-3 md:grid-cols-1">
-                {photos.map((photo) => (
-                  <button
-                    key={photo.src}
-                    onClick={() => setActivePhoto(photo)}
-                    className={`relative flex h-24 items-center overflow-hidden rounded-2xl border text-left shadow-sm transition ${
-                      activePhoto.src === photo.src
-                        ? "border-[#50808E] ring-2 ring-[#50808E]"
-                        : "border-slate-200 hover:border-[#84B59F]"
-                    }`}
-                  >
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      fill
-                      className="object-cover"
-                      sizes="200px"
-                    />
-                    <div className="relative z-10 bg-gradient-to-r from-black/60 to-transparent px-3 py-2 text-[11px] font-medium text-slate-50">
-                      {photo.alt}
-                    </div>
-                  </button>
-                ))}
-              </div>
+            {/* thumbnails in a more playful layout */}
+            <div className="grid gap-4 sm:grid-cols-3 md:grid-cols-1">
+              {photos.map((photo) => (
+                <button
+                  key={photo.src}
+                  onClick={() => setActivePhoto(photo)}
+                  className={`relative flex h-24 items-end overflow-hidden rounded-[1.75rem] bg-[#F5EFFF] text-left shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg ${
+                    activePhoto.src === photo.src
+                      ? "ring-2 ring-[#7371FC]"
+                      : "ring-1 ring-[#E5D9F2]"
+                  }`}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    className="object-cover"
+                    sizes="200px"
+                  />
+                  <div className="relative z-10 w-full bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-[11px] font-medium text-white">
+                    {photo.alt}
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* POEM (COLLAPSIBLE) */}
+        {/* POEM */}
         <PoemSection />
 
-        {/* REFLECTION / ASSIGNMENT HELP */}
-        <section className="space-y-4 rounded-3xl bg-[#84B59F]/40 p-6 shadow-sm ring-1 ring-[#84B59F]/60 md:p-8">
-          <h2 className="text-xl font-semibold tracking-tight text-[#243B4A]">
-            Her Legacy and My Takeaways
-          </h2>
-          <p className="max-w-3xl text-sm leading-relaxed text-[#243B4A]">
-            Electa&apos;s story is not about fame or dramatic events. It is about
-            showing up, quilting for others, visiting the sick, answering calls to
-            serve, and quietly strengthening her community. Mountain valleys and
-            pioneer roads were the backdrop, but her discipleship was the real
-            journey.
-          </p>
-          <div className="grid gap-3 text-sm text-[#243B4A] md:grid-cols-3">
-            <div className="rounded-2xl bg-white/70 p-4 shadow-sm">
-              <h3 className="text-sm font-semibold">Service</h3>
-              <p className="mt-1 text-xs">
-                How did Electa&apos;s constant service, especially as Relief Society
-                president, shape the people around her?
+        {/* REFLECTION */}
+        <section className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-[#A594F9] to-[#7371FC] p-8 text-[#F5EFFF] shadow-2xl md:p-10">
+          <div className="pointer-events-none absolute -right-24 -top-16 h-64 w-64 rounded-full bg-[#F5EFFF]/20 blur-3xl" />
+          <div className="pointer-events-none absolute -left-20 bottom-[-4rem] h-72 w-72 rounded-full bg-[#E5D9F2]/25 blur-3xl" />
+
+          <div className="relative grid gap-8 md:grid-cols-[2fr,1.6fr] md:items-center">
+            <div className="space-y-4">
+              <h2 className="text-2xl font-semibold tracking-tight">
+                Her Legacy and My Takeaways
+              </h2>
+              <p className="max-w-xl text-sm leading-relaxed text-[#F5EFFF]/95">
+                Electa&apos;s story is not about fame or dramatic events. It is
+                about showing up, quilting for others, visiting the sick,
+                answering calls to serve, and quietly strengthening her community.
+                Mountains and long winters were the backdrop, but her discipleship
+                was the real journey.
               </p>
             </div>
-            <div className="rounded-2xl bg-white/70 p-4 shadow-sm">
-              <h3 className="text-sm font-semibold">Courage</h3>
-              <p className="mt-1 text-xs">
-                What did it take to leave Utah and start again in Star Valley to
-                live the laws she believed in?
-              </p>
-            </div>
-            <div className="rounded-2xl bg-white/70 p-4 shadow-sm">
-              <h3 className="text-sm font-semibold">Connection</h3>
-              <p className="mt-1 text-xs">
-                How does her temple and genealogy work connect you to her today, and
-                how might you continue that work?
-              </p>
+            <div className="grid gap-4 text-sm md:grid-cols-2">
+              <div className="rounded-2xl bg-[#F5EFFF]/12 p-4 shadow-sm ring-1 ring-[#F5EFFF]/25">
+                <h3 className="text-sm font-semibold">Service</h3>
+                <p className="mt-1 text-xs text-[#F5EFFF]/90">
+                  How did Electa&apos;s constant service, especially as Relief
+                  Society president, shape the people around her?
+                </p>
+              </div>
+              <div className="rounded-2xl bg-[#F5EFFF]/12 p-4 shadow-sm ring-1 ring-[#F5EFFF]/25">
+                <h3 className="text-sm font-semibold">Courage</h3>
+                <p className="mt-1 text-xs text-[#F5EFFF]/90">
+                  What did it take to leave Utah and start again in Star Valley
+                  to live the laws she believed in?
+                </p>
+              </div>
+              <div className="rounded-2xl bg-[#F5EFFF]/12 p-4 shadow-sm ring-1 ring-[#F5EFFF]/25 md:col-span-2">
+                <h3 className="text-sm font-semibold">Connection</h3>
+                <p className="mt-1 text-xs text-[#F5EFFF]/90">
+                  How does her temple and genealogy work connect you to her
+                  today, and how might you continue that work for your own
+                  family?
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -250,29 +292,29 @@ function PoemSection() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="space-y-4 rounded-3xl bg-white/90 p-6 shadow-sm ring-1 ring-slate-200 md:p-8">
+    <section className="space-y-4 rounded-[2.5rem] bg-white/70 p-6 shadow-md shadow-[#CDC1FF]/70 backdrop-blur md:p-8">
       <header className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
             Sentiments of the Sisters
           </h2>
           <p className="max-w-xl text-sm text-slate-700">
-            In 1909, Maria Lucinda Jensen of Smoot, Wyoming, wrote a poem to honor
-            Electa&apos;s tireless service as Relief Society president. Click below
-            to read it.
+            In 1909, Maria Lucinda Jensen of Smoot, Wyoming, wrote a poem to
+            honor Electa&apos;s tireless service as Relief Society president. Click
+            below to read it.
           </p>
         </div>
         <button
           onClick={() => setOpen((o) => !o)}
-          className="mt-2 inline-flex items-center justify-center rounded-full bg-[#50808E] px-5 py-2 text-xs font-semibold text-[#DDD8C4] shadow-sm transition hover:bg-[#69A297]"
+          className="mt-2 inline-flex items-center justify-center rounded-full bg-[#7371FC] px-5 py-2 text-xs font-semibold text-[#F5EFFF] shadow-sm transition hover:bg-[#A594F9]"
         >
           {open ? "Hide Poem" : "Read the Poem"}
         </button>
       </header>
 
       {open && (
-        <div className="max-h-[28rem] overflow-y-auto rounded-2xl bg-[#A3C9A8]/20 p-4 text-sm leading-relaxed text-slate-900 ring-1 ring-slate-200">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#50808E]">
+        <div className="max-h-[28rem] overflow-y-auto rounded-[2rem] bg-[#E5D9F2]/70 p-4 text-sm leading-relaxed text-slate-900 ring-1 ring-[#CDC1FF]/80">
+          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#7371FC]">
             “Sentiments of the Sisters to Their President Electa Walton”
           </p>
           <p className="whitespace-pre-line">
